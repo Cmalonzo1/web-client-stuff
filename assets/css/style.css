@@ -1,0 +1,19 @@
+html{
+    box-sizing: border-box;
+    font-family: 'Arial';
+    background-color: black;
+    color: white;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: auto;
+    max-width: 1000px;
+}
+
+ul{
+    list-style-type: none;
+}

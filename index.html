@@ -1,1 +1,186 @@
-<p>hi</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    
+    <!--Operator scripts-->
+    <link rel="JavaScript" href="assets/js/plusOperator.js"/>
+</head>
+<body>
+    <h1>Javascript Demo Buttons</h1>
+    <h2>Carson Alonzo | Web Client Applications</h2>
+
+    <p>Option 1: Build a web page with buttons. If possible add new buttons to the buttons 
+        from the previous HW to begin building a catalog of JavaScript demo buttons, 
+        or you can start a new page with only new buttons if you prefer, 
+        however, make the page scalable so you can add more buttons to in in future HWs. 
+        Each new button demos an operator in JavaScript. Try for quality in the logic (algorithm), 
+        the functionality (how much it can do), and the user experience. 
+        Good coding includes comments, good variable names (which makes the code self-documenting, so you need fewer comments), 
+        and indentation that supports readability. The function prompt() is a convenient way to get user input, 
+        generally considered good for testing and development purposes though not for production commercial code. 
+        It works well for what it does and is the way we learned so far for reading in inputs. 
+        Above all, have some fun with it! (We can’t grade you on having fun, but still, give it a try!)</p>
+
+    <div id="buttonCollage">
+        <h2>Javascript Methods</h2>
+        <ul>
+            <li><button id="getElement" onclick="document.getElementById('getElement').innerHTML = 'Hi'">getElementById()</button><p>This method searches for the element with the ID <em>'getElement'</em> and replaces the text inside the button with <em>'Hi'</em></p></li>
+            <li><button id="write" onclick="document.write('Hello')">write()</button><p>This method replaces the document with the text <em>'Hello'</em></p></li>
+            <li><button id="alert" onclick="alert('hello')">alert()</button><p>This method brings up a popup menu with the text <em>'Hello'</em></p></li>
+            <li><button id="print" onclick="window.print()">print()</button><p>This method opens up the print page</p></li>
+        </ul>
+        <h2>Operators</h2>
+        <button id="plusOperator" onclick="alert(addTwoNumbers())">Add Operator</button>
+        <button id="minusOperator" onclick="alert(subtractTwoNumbers())">Minus Operator</button>
+        <button id="multiplyOperator" onclick="alert(multiplyTwoNumbers())">Multiply Operator</button>
+        <button id="divideOperator" onclick="alert(divideTwoNumbers())">Divide Operator</button>
+        <button id="modulusOperator" onclick="alert(checkEvenOrOdd())">Modulus Operator</button>
+        <button id="equalOperator" onclick="alert(checkNumEqual())">Equal Operator</button>
+        <button id="notEqualOperator" onclick="alert(checkNumNotEqual())">Not Equal Operator</button>
+        <button id="greaterThanOperator" onclick="alert(checkNumBigger())">Greater Than Operator</button>
+        <button id="lessThanOperator" onclick="alert(checkNumSmaller())">Less Than Operator</button>
+
+        
+    </div>
+
+    <!--Add Operator-->
+    <script>
+    function addTwoNumbers(){
+        let numOne = prompt("Number 1: ");
+        let numTwo = prompt("Number 2: ");
+
+        numOne = parseFloat(numOne);
+        numTwo = parseFloat(numTwo);
+
+        let sum = Math.round(numOne + numTwo);
+        return sum;
+    }
+    </script>
+
+    <!--Subtract Operator-->
+    <script>
+        function subtractTwoNumbers(){
+            let numOne = prompt("Number 1: ");
+            let numTwo = prompt("Number 2: ");
+    
+            numOne = parseFloat(numOne);
+            numTwo = parseFloat(numTwo);
+    
+            let difference = Math.round(numOne - numTwo);
+            return difference;
+        }
+    </script>
+
+    <!--Multiply Operator-->
+    <script>
+        function multiplyTwoNumbers(){
+            let numOne = prompt("Number 1: ");
+            let numTwo = prompt("Number 2: ");
+    
+            numOne = parseFloat(numOne);
+            numTwo = parseFloat(numTwo);
+    
+            let product = Math.round(numOne * numTwo);
+            return product];
+        }
+    </script>
+    
+    <!--Divide Operator-->
+    <script>
+        function divideTwoNumbers(){
+            let numOne = prompt("Number 1: ");
+            let numTwo = prompt("Number 2: ");
+    
+            numOne = parseFloat(numOne);
+            numTwo = parseFloat(numTwo);
+    
+            let quotient = Math.round(numOne / numTwo);
+            return quotient;
+        }
+    </script>
+    
+    <!--Modulus Operator-->
+    <script>
+        function checkEvenOrOdd(){
+            let num = prompt("Enter a number to check if it is even or odd *Even=True Odd=False*: ");
+            
+            if (num % 2 == 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+    
+    <!--Equal Operator-->
+    <script>
+        function checkNumEqual(){
+            let num = prompt("Enter a number to check if it is equal to 5: ");
+    
+            num = parseFloat(num);
+            
+            if (num == 5){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+    
+    <!--Not Equal Operator-->
+    <script>
+        function checkNumNotEqual(){
+            let num = prompt("Enter a number to check if it not equal to 5: ");
+    
+            num = parseFloat(num);
+            
+            if (num != 5){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+
+    <!--Greater Than Operator-->
+    <script>
+        function checkNumBigger(){
+            let num = prompt("Enter a number to check if it bigger than 5: ");
+    
+            num = parseFloat(num);
+            
+            if (num > 5){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+
+    <!--Less Than Operator-->
+    <script>
+        function checkNumSmaller(){
+            let num = prompt("Enter a number to check if it less than 5: ");
+    
+            num = parseFloat(num);
+            
+            if (num < 5){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
