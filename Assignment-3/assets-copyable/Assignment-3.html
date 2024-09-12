@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Assignment 3</h1>
+    <h2>Carson Alonzo | Web Client Applications</h2>
+    <h3>Give four examples of OR from daily life illustrating the four cases of true or false, false or true, true or true, and false or false. (Do not give an example of an if-then statement from daily life, and its contrapositive. Do not explain why you agree or disagree that the two if-then statements say the same thing.)</h3>
+    <ol id="questionOne">
+        <li>Ordering food from Pizza Hut: Medium Pepperoni Pizza and Chicken Alfredo</li>
+        <ul>
+            <li>Pizza (TRUE) OR Alfredo (FALSE): Get the Pizza, not the Alfredo</li>
+            <li>Pizza (FALSE) OR Alfredo (TRUE): Get the Alfredo, not the Pizza</li>
+            <li>Pizza (TRUE) OR Pasta (TRUE): Get both or either one of them</li>
+            <li>Pizza (FALSE) OR Pasta (FALSE): Starve</li>
+        </ul>
+        <li>Putting Money in Banking Accounts</li>
+        <ul>
+            <li>Checking (TRUE) OR Savings (FALSE): Put the money in your Checking account, not the Savings account</li>
+            <li>Checking (FALSE) OR Savings (TRUE): Put the money in your Savings account, not the Checking account</li>
+            <li>Checking (TRUE) OR Savings (TRUE): Put in one or split and put in both accounts</li>
+            <li>Checking (FALSE) OR Savings (FALSE): You don't have any money to put in either of these accounts, sorry</li>
+        </ul>
+        <li>Friend's Night: Movies or Video Games</li>
+        <ul>
+            <li>Movies (TRUE) OR Video Games (FALSE): Just watch movies, don't play games</li>
+            <li>Movies (FALSE) OR Video Games (TRUE): Just play games, don't watch movies</li>
+            <li>Movies (TRUE) OR Video Games (TRUE): Watch movies and/or play games</li>
+            <li>Movies (FALSE) OR Video Games (FALSE): Cancel your plans with your friends</li>
+        </ul>
+        <li>What am I getting from Best Buy during Black Friday?</li>
+        <ul>
+            <li>49 Inch Dell Curved Monitor - Adjustable $999 <s>$1499</s> (TRUE) OR Electric Kickstand Scooter $350 <s>$599</s> (FALSE): Get the monitor instead of the scooter</li>
+            <li>49 Inch Dell Curved Monitor - Adjustable $999 <s>$1499</s> (FALSE) OR Electric Kickstand Scooter $350 <s>$599</s> (FALSE): Get the scooter instead of the monitor</li>
+            <li>49 Inch Dell Curved Monitor - Adjustable $999 <s>$1499</s> (TRUE) OR Electric Kickstand Scooter $350 <s>$599</s> (TRUE): Get both, why not? I have enough money</li>
+            <li>49 Inch Dell Curved Monitor - Adjustable $999 <s>$1499</s> (FALSE) OR Electric Kickstand Scooter $350 <s>$599</s> (FALSE): Too poor. Unfortunate</li>
+        </ul>
+    </ol>
+
+<h3>(2) Using JavaScript, write code that will print 5 lines: one for each row of the truth table for OR, plus a line containing the column labels.</h3>
+
+<div id="questionTwo">
+    <button onclick="createORTruthTable()">Click this button to create an OR truth table</button>
+    <p id="ORTruthTable">
+
+    </p>
+</div>
+
+<script>
+    function createORTruthTable(){
+
+        let tableColumns = "A".padEnd(6, "\u00A0") + "B".padEnd(6, "\u00A0") + "(A OR B)<br>" + "----------------------- <br>";
+        let text = "";
+
+        let conditions = [true, false];
+        
+        //loops through combinations of T & F
+        for (let T of conditions){ 
+            for (let F of conditions){
+                
+                let result = T || F;
+                
+                //Store the combinations; utilizing the conditional operator to evaluate whether or not T & F are either True or False and to display the correct symbol
+                //\u00A0 is unicode for whitespace
+                text += (T ? "T" : "F").padEnd(6, "\u00A0") + " " + (F ? "T" : "F").padEnd(8, "\u00A0") + " " + result + "<br>";
+            }
+        }
+
+        document.getElementById("ORTruthTable").innerHTML = tableColumns + text;
+    }
+</script>
+
+<h3>(3) Using JavaScript, write code that will print 5 lines: one for each row of the truth table for AND, plus a line containing the column labels.</h3>
+
+<div id="questionThree"></div>
+    <button onclick="createANDTruthTable()">Click this button to create an AND truth table</button>
+    <p id="ANDTruthTable">
+
+    </p>
+</div>
+
+<script>
+    function createANDTruthTable(){
+
+        let tableColumns = "A".padEnd(6, "\u00A0") + "B".padEnd(6, "\u00A0") + "(A AND B)<br>" + "----------------------- <br>";
+        let text = "";
+
+        let conditions = [true, false];
+        
+        //loops through combinations of T & F
+        for (let T of conditions){ 
+            for (let F of conditions){
+                
+                let result = T && F;
+                
+                //Store the combinations; utilizing the conditional operator to evaluate whether or not T & F are either True or False and to display the correct symbol
+                //\u00A0 is unicode for whitespace
+                text += (T ? "T" : "F").padEnd(6, "\u00A0") + " " + (F ? "T" : "F").padEnd(8, "\u00A0") + " " + result + "<br>";
+            }
+        }
+
+        document.getElementById("ANDTruthTable").innerHTML = tableColumns + text;
+    }
+</script>
+
+<h3>(4) What is the integer value of an 8-bit byte containing the following bit sequences?</h3> 
+
+<ul>
+    <li>00000001<p id="byte1"></p></li>
+    <li>00000010<p id="byte2"></p></li>
+    <li>00000011<p id="byte3">3</p></li>
+    <li>00000100<p id="byte4">4</p></li>
+    <li>00001000<p id="byte5">8</p></li>
+    <li>00001111<p id="byte6">15</p></li>
+</ul>
+
+<script>//converts each byte into its respective integer using the parseInt() method
+    function convertByteToInt(byte){
+        return parseInt(byte, 2);
+    }
+    document.getElementById('byte1').innerHTML = convertByteToInt("00000001");
+    document.getElementById('byte2').innerHTML = convertByteToInt("00000010");
+    document.getElementById('byte3').innerHTML = convertByteToInt("00000011");
+    document.getElementById('byte4').innerHTML = convertByteToInt("00000100");
+    document.getElementById('byte5').innerHTML = convertByteToInt("00001000");
+    document.getElementById('byte6').innerHTML = convertByteToInt("00001111");
+    
+</script>
+
+<h3>(5) Answer these bitwise operator questions</h3>
+<ul>
+   <li>What is 7^7 in JavaScript?<p>The XOR Operator sets each bit to 1 if one of two bits is 1</p></li>
+   <li>What is 7 & 7? Explain.<p>The AND Operator sets both bits to 1 if both bits are 1</p></li>
+   <li>What is 7 | 7? Explain.<p>The OR Operator sets both bits to 1 if either bit is 1</p></li>
+</ul>
+
+(6)
+
+<h3>What is the minimum score on a HW assigment in this course?</h3>
+<p>50 points</p>
+
+<h3>(7)Pick option a, b or c.</h3>
+
+a. Build more interesting buttons! Add them to your growing collection or, if you prefer, make this a new program without earlier buttons. The buttons should demo the the bitwise logic operators in the w3schools lesson (https://www.w3schools.com/js/js_bitwise.asp), explaining each operator, as well as demo questions (2), (3) & (4) above.
+
+<ul>
+    <li><button onclick="testAndOp()">Click to demonstrate the AND (&) Operator</button><p id="andOp"></p></li>
+    <li><button onclick="testOrOp()">Click to demonstrate the OR (|) Operator</button><p id="orOp"></p></li>
+    <li><button onclick="testXorOp()">Click to demonstrate the XOR (^) Operator</button><p id="xorOp"></p></li>
+    <li><button onclick="testNotOp()">Click to demonstrate the NOT (~) Operator</button><p id="notOp"></p></li>
+    <li><button onclick="testZeroFillOp()">Click to demonstrate the Zero Fill Left Shift (<<) Operator</button><p id="zeroFillOp"></p></li>
+    <li><button onclick="testSignedRightOp()">Click to demonstrate the Signed Right Shift (>>) Operator</button><p id="signedRightOp"></p></li>
+    <li><button onclick="testZeroFillRightOp()">Click to demonstrate the Zero Fill Right Shift (>>>) Operator</button><p id="zeroFillRightOp"></p></li>
+</ul>
+    
+
+<script>
+    function testAndOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num & num2;
+        document.getElementById('andOp').innerHTML = "The result of " + num + " & " + num2 + " is: " + result;
+    }
+</script>
+
+<script>
+    function testOrOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num | num2;
+        document.getElementById('orOp').innerHTML = "The result of " + num + " | " + num2 + " is: " + result;
+    }
+</script>
+
+<script>
+    function testXorOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num ^ num2;
+        document.getElementById('xorOp').innerHTML = "The result of " + num + " ^ " + num2 + " is: " + result + "<br>";
+    }
+</script>
+
+<script>
+    function testNotOp(){
+        let num = 5;
+        let result = ~num;
+        document.getElementById('notOp').innerHTML = "The result of ~" + num + " is: " + result;
+    }
+</script>
+
+<script>
+    function testZeroFillOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num << num2;
+        document.getElementById('zeroFillOp').innerHTML = "The result of " + num + " << " + num2 + " is: " + result;
+    }
+</script>
+
+<script>
+    function testSignedRightOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num >> num2;
+        document.getElementById('signedRightOp').innerHTML = "The result of " + num + " >> " + num2 + " is: " + result;
+    }
+</script>
+
+<script>
+    function testZeroFillRightOp(){
+        let num = 5;
+        let num2 = 1;
+        let result = num >>> num2;
+        document.getElementById('zeroFillRightOp').innerHTML = "The result of " + num + " >>> " + num2 + " is: " + result;
+    }
+</script>
+
+</body>
+</html>
