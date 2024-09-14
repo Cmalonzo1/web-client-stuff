@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Assignment 4 | Carson Alonzo</h1>
+
+    Option A: buttons
+    Note: If you want to learn anything, avoid using an AI for this problem unless you get completely stuck and really need a hint.
+    
+    <h3>A1. Conditionals.</h3>
+    
+        <ol type = "a">
+            <li id="fakeExample">Declare and assign a value to x. If x is 3, print "x === 3". Add an else clause. It prints "x===4". Alas, your program has a bug: if x is 5 it still prints "x === 4"! 
+                <!--Visualizing the code-->
+                <p>
+                    let text = ""; <br>
+                    let x = 5;
+
+                        <p style="color: red;">Incorrect conditional construct</p>
+                        if (x === 3) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; text = "x = 3";<br>
+                        }<br>
+                        else {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; text = "x = 4";<br>
+                        }
+
+                        <p>This prints: <result id="incorrectResult" style="color: green"></result></p>
+                </p>
+            </li>
+            
+            <li id="realExample">Fix the bug with an "else if" construct, so that now, if x is 4 it correctly prints "x===4" but on the other hand if x is not 4 it correctly prints "x != 4".
+                <p>
+                    let text = ""; <br>
+                    let x = 5;
+
+                        <p style="color: lightgreen;">Correct conditional construct</p>
+                        if (x === 3) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; text = "x = 3";<br>
+                        }<br>
+                        elseif (x === 4) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; text = "x = 4";<br>
+                        }<br>
+                        else{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; text = "x != 4";<br>
+                        }<br>
+                        <p>This prints: <result id="correctResult" style="color: green"></result></p>
+                </p>
+            </li>
+        </ul>
+    
+        <script> //incorrect conditional
+            let incorrectText = "";
+            let x = 5; //assigns a random value between 0-5 to x
+            
+            if (x === 3){
+                text = "x = 3";
+            }
+            else{
+                text = "x = 4";
+            }
+            document.getElementById('incorrectResult').innerHTML = text;
+        </script>
+
+        <script> //correct conditional
+
+            let correctText = "";
+            let y = 5; //assigns a random value between 0-5 to x
+
+            if (y === 3){
+                text = "x = 3";
+            }
+            else if (y === 4){
+                text = "x = 4";
+            }
+            else{
+                text = "x != 4";
+            }
+            document.getElementById('correctResult').innerHTML = text;
+        </script>
+    
+    A2. More conditionals.
+        
+    <ol type="a">
+        <li>Demonstrate the if statement using a button.</li>
+        
+        <button onclick = "printNumber();">This button will print "This number is 5" if the number is 5</button>
+        <p id="ifStatementExample"></p>
+        <script>
+            function printNumber(){
+                let number = 5;
+
+                if (number === 5){
+                    text = "The number is 5";
+                }
+                document.getElementById("ifStatementExample").innerHTML = text;
+            }
+        </script> <!--If example-->
+        <li>Demonstrate the if else statement using a button.</li>
+        
+        <button onclick = "printNumberWithRNG();">This button will print "This number is not 5" until it lands on 5</button>
+        <p id="ifElseStatementExample"></p>
+        <script>
+            function printNumberWithRNG(){
+                let number = Math.round(Math.random() * 5);
+
+                if (number === 5){
+                    text = "The number is 5";
+                }
+                else{
+                    text = "The number is not 5";
+                }
+                document.getElementById("ifElseStatementExample").innerHTML = text;
+            }
+        </script> <!--If Else example-->
+
+        <li>Demonstrate the "else if" statement (an if else statement in which the else clause is another if else statement) using a button. </li>
+
+        <button onclick = "printNumberWithRNG2();">This button will print "This number is 5" if the number is 5</button>
+        <p id="ifElseIfStatementExample"></p>
+        <script>
+            function printNumberWithRNG2(){
+                let number = Math.round(Math.random() * 5);
+
+                if (number === 5){
+                    text = "The number is 5";
+                }
+                else if(number === 4){
+                    text = "The number is 4";
+                }
+                document.getElementById("ifElseIfStatementExample").innerHTML = text;
+            }
+        </script> <!--If Else if example-->
+
+    </ol>
+    
+    <h3>A3. Implement a for loop, a while loop, and a do while loop. These should involve buttons that demonstrate the loops.</h3>
+    
+    <button onclick="incrementNumber()">This button increments a number until it reaches 10 using a for loop</button>
+        <p id="forLoopExample"></p>
+
+        <script>
+            function incrementNumber(){
+                let text = "";
+
+                for (let i = 0; i <= 10; i++){
+                    text += i + " ";
+                }
+                document.getElementById("forLoopExample").innerHTML = text;
+            }
+        </script> <!--For Loop Button-->
+
+        <button onclick="collatzConjecture()">This button uses a while loop to demonstrate the Collatz Conjecture</button>
+        <p id="whileLoopExample"></p>
+
+        <script>
+            function collatzConjecture(){
+                text = "";
+                let number = 1 + Math.round(Math.random() * 5);
+
+                while (number != 1){
+                    if (number % 2 === 0){
+                        number /= 2;
+                    }
+                    else if (number % 2 === 1){
+                        number = (number * 3) + 1;
+                    }
+                   text += number + " ";
+                }
+                document.getElementById("whileLoopExample").innerHTML = text;
+            }
+        </script> <!--While Loop Button-->     
+             
+        <button onclick="printThisWhile()">This button prints "Printing" + number while number is less than 10</button>
+        <p id="doWhileLoopExample"></p>
+        
+        <script>
+                function printThisWhile(){
+                let text = "";
+                let number = 0;
+                
+                do {text += "Printing " + number + " "; number++} while (number <= 10);
+                
+                document.getElementById("doWhileLoopExample").innerHTML = text;
+            }
+        </script> <!--Do While loop example-->
+
+    
+
+    <h3>A4. Modify the button styles. Here is an example:
+        (check the source code for this button to see how it is done).</h3>
+</body>
+</html>
