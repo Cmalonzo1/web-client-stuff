@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets-copyable/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Assignment 5</h1>
+    <h2>Carson Alonzo | Web Client Applications</h2>
+<h3>0. What is the minimum percentage score on a HW in this course?</h3>
+<p id="question0"> 50%</p>
+
+<h3>1. Declare one function one way and the other a second way. One way is the common way that starts:</h3>
+    <ul>
+        <l1>function myFunc1.........<p>and the other way shows what happens "under the hood" when declaring a function:</p></l1>
+        <button onclick="document.getElementById('question1P1').innerHTML=myFunc1();">Prints a random number between 0 & 5</button>
+        <p id="question1P1"></p>
+        <script>
+            function myFunc1(){
+                let x = Math.round(Math.random() * 5);
+                return x;
+            } 
+        </script>
+        
+    <li>let myFunc2=.........<p>Declare a variable x, set it to the value of myFunc2, and run function x. The typeof of 5 is number. What is the typeof of variable myFunc?</p></li>
+    <button onclick="document.getElementById('question1P2').innerHTML = myFunc2();">Prints the Type</button>
+    <p id="question1P2"></p>
+    <script>
+        let myFunc2 = function(){
+            let x = typeof(myFunc2);
+            return x;
+        };
+    </script>
+    </ul>
+
+<h3>2. Make a function that calls itself once.</h3>
+<button onclick="document.getElementById('question2').innerHTML = returnValue()";>Calls the function returnValue() twice to add two random numbers together</button>
+<p id="question2"></p>
+
+<script id="returnValueFunction">
+    function returnValue(){
+        x = Math.round(Math.random() * 5);
+        return x;
+    };
+    sum = returnValue() + returnValue();
+    document.getElementById("question2").innerHTML = sum;
+</script>
+
+<h3>3. Call a function and print the result.</h3>
+<button onclick = "document.getElementById('question3').innerHTML = printSum();">Prints the sum of two random numbers</button>
+<p id="question3"></p>
+
+<script>
+    function printSum(){
+        x = Math.round(Math.random() * 5);
+        y = Math.round(Math.random() * 5);
+        return x.toString() + " + " + y.toString() + " = " + (x + y);
+    }
+</script>
+
+<h3>4. Print out the code of a function (that is, instead of calling it, print the code).</h3>
+<button onclick="document.getElementById('question4').innerHTML = printContents.toString();">This button prints the code inside of printContents()</button>
+<p id="question4"></p>
+
+<script>
+    function printContents(){
+        let comment = "Everything inside this function will be printed on the webpage.";
+        return comment;
+    }
+</script>
+
+<h3>5. Declare an array. Print out its elements using a loop. Print out the length of the array.</h3>
+<button onclick = "document.getElementById('question5').innerHTML = printArray();">Prints out the contents of an array of numbers as well as its size</button>
+<p id="question5"></p>
+
+<script>
+    function printArray(){
+        let array = [];
+        let randNum = Math.round(Math.random()* 10);
+        for (let i = 0; i < randNum; i++){
+        array.push(i);
+        }
+        return "Contents in array: " + array + "<br>" + "Size: " + array.length;
+    }
+</script>
+
+<h3>6. Do either option (A) or option (B).</h3>
+<p>Option (A). Make buttons demonstrating the questions above. Add them to your growing button-based encyclopedia of JavaScript buttons, or start a new compendium of buttons that you could add to in future HWs.</p>
+<p style="color: pink;">The buttons will be under each question</p>
+</body>
+</html>
